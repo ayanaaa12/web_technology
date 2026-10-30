@@ -1,63 +1,110 @@
+/* ================================
+   CARECONNECT - AUTHENTICATION UI
+================================ */
 
 .auth-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 16px;
-  background: #f5f8f4;
+  padding: 40px 20px;
+  background:
+    radial-gradient(circle at top left, #e2f1e8 0%, transparent 40%),
+    linear-gradient(135deg, #f4f8f5, #eaf2ec);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
+/* Main authentication card */
 .auth-card {
   width: 100%;
-  max-width: 440px;
-  padding: 32px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  max-width: 460px;
+  padding: 44px 40px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(40, 118, 83, 0.10);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(31, 77, 54, 0.10);
+  animation: authFadeIn 0.5s ease;
 }
 
+/* Heading */
 .auth-card h1 {
-  color: #245b45;
-  margin-bottom: 8px;
+  color: #174d37;
+  font-size: 30px;
+  font-weight: 750;
+  letter-spacing: -0.8px;
+  margin-bottom: 10px;
 }
 
 .auth-card p {
-  color: #65736b;
+  color: #718078;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
+/* Form layout */
 .auth-card form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 24px;
+  gap: 9px;
+  margin-top: 30px;
 }
 
 .auth-card label {
-  color: #24332e;
-  font-weight: 600;
-  margin-top: 8px;
+  color: #294b3a;
+  font-size: 13px;
+  font-weight: 650;
+  margin-top: 12px;
 }
 
+/* Input fields */
 .auth-card input,
 .auth-card select {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ccd6cf;
-  border-radius: 8px;
-  background: white;
-  color: #24332e;
+  padding: 15px 16px;
+  border: 1px solid #dce7df;
+  border-radius: 12px;
+  background: #f9fcfa;
+  color: #20392c;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
 }
 
+.auth-card input::placeholder {
+  color: #a3b1a8;
+}
+
+.auth-card input:focus,
+.auth-card select:focus {
+  border-color: #36865e;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(54, 134, 94, 0.10);
+}
+
+/* Submit button */
 .auth-card button {
-  margin-top: 14px;
-  padding: 13px;
+  margin-top: 22px;
+  padding: 15px;
   border: none;
-  border-radius: 8px;
-  background: #287653;
-  color: white;
-  font-weight: 600;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #26754e, #174d37);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0.2px;
   cursor: pointer;
+  box-shadow: 0 7px 18px rgba(38, 117, 78, 0.20);
+  transition: all 0.25s ease;
+}
+
+.auth-card button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 11px 24px rgba(38, 117, 78, 0.28);
+}
+
+.auth-card button:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .auth-card button:disabled {
@@ -65,27 +112,72 @@
   cursor: not-allowed;
 }
 
+/* Links */
 .auth-card a {
-  color: #287653;
-  font-weight: 600;
+  color: #26754e;
+  font-weight: 650;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
+.auth-card a:hover {
+  color: #123e2b;
+  text-decoration: underline;
+}
+
+/* Footer */
 .auth-footer {
-  margin: 22px 0 12px;
+  margin: 26px 0 8px;
+  text-align: center;
+  font-size: 14px;
+  color: #78867d;
 }
 
+/* Messages */
 .message {
-  padding: 12px;
-  border-radius: 8px;
-  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .error {
-  color: #a32222;
-  background: #fff0f0;
+  color: #a12c2c;
+  background: #fff1f0;
+  border: 1px solid #f8d5d2;
 }
 
 .success {
-  color: #17653b;
-  background: #e9f8ef;
+  color: #17643d;
+  background: #eaf7ef;
+  border: 1px solid #ccebd7;
+}
+
+/* Animation */
+@keyframes authFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 520px) {
+  .auth-page {
+    padding: 20px 14px;
+  }
+
+  .auth-card {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+
+  .auth-card h1 {
+    font-size: 26px;
+  }
 }
